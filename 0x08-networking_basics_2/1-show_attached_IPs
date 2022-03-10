@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script displays all active IPv4 IPs on the machine it’s executed on
+
+grep "localhost" /etc/hosts | awk '{ print $1 }'
