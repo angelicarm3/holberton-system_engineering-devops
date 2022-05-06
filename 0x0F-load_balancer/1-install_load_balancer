@@ -7,8 +7,8 @@ frontend http_front
    default_backend http_back
 backend http_back
    balance roundrobin
-   server web-01 34.148.195.38 check
-   server web-02 34.229.151.106 check
+   server 3333-web-01 34.148.195.38 check
+   server 3333-web-02 34.229.151.106 check
    "
 add-apt-repository -y ppa:vbernat/haproxy-1.7
 apt -y update
