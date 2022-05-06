@@ -1,17 +1,20 @@
 #!/usr/bin/env bash
 # Install HAproxy and config load balancer
+sudo apt-get -y update
+sudo apt-get -y upgrade
+sudo apt-get -y install haproxy
+sudo chown -R ubuntu /etc/haproxy
+
 CONFIG="
-frontend http_front
+frontend http
    bind *:80
-   stats uri /haproxy?stats
-   default_backend http_back
-backend http_back
+   mode http
+   default_backend web-server
+backend web-server
    balance roundrobin
    server 3333-web-01 34.148.195.38 check
    server 3333-web-02 34.229.151.106 check
    "
-add-apt-repository -y ppa:vbernat/haproxy-1.7
-apt -y update
-apt install -y haproxy
-echo "$CONFIG" >> /etc/haproxy/haproxy.cfg
-service haproxy restart
+
+sudo echo "$CONFIG" >> /etc/haproxy/haproxy.cfg
+sudo service haproxy restart
