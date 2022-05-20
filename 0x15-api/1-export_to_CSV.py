@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-"""Using a REST API returns information about employee ID TODO list progress"""
+"""Using task 0 extend script to xport data in the CSV format"""
 
 
 if __name__ == '__main__':
-    """export data in the CSV format"""
     import requests
     import sys
     import csv
