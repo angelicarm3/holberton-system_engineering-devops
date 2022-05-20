@@ -3,6 +3,7 @@
 
 
 if __name__ == '__main__':
+    """export data in the CSV format"""
     import requests
     import sys
     import csv
